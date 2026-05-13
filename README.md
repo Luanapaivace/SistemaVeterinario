@@ -33,9 +33,9 @@ Cada microsserviço é desenvolvido e mantido por um(a) integrante responsável,
 
 | Integrante | Microsserviço | Responsabilidade |
 |---|---|---|
-| 👩‍💻 **Rayssa Fialho** | 🐶 Pets | Backend + Interface web do serviço de Pets |
-| 👩‍💻 **Luana Oliveira** | 👤 Tutores | Backend + Interface web do serviço de Tutores |
-| 👨‍💻 **Gabriel Rolim** | 📅 Agendamentos | Backend + Interface web do serviço de Agendamentos |
+|  **Rayssa Fialho** | 🐶 Pets | Backend + Interface web do serviço de Pets |
+|  **Luana Oliveira** | 👤 Tutores | Backend + Interface web do serviço de Tutores |
+|  **Gabriel Rolim** | 📅 Agendamentos | Backend + Interface web do serviço de Agendamentos |
 
 ---
 
