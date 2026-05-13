@@ -9,7 +9,7 @@
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
 
-**Um sistema veterinário distribuído em microsserviços independentes para gerenciamento de pets, donos e consultas.**
+**Um sistema veterinário distribuído em microsserviços independentes para gerenciamento de pets, tutores e agendamentos.**
 
 </div>
 
@@ -30,15 +30,15 @@ O sistema é composto por **três microsserviços principais**, cada um com resp
 | Microsserviço | Responsabilidade |
 |---|---|
 | 🐶 **Pets** | Gerenciamento dos animais cadastrados |
-| 👤 **Donos** | Gerenciamento dos tutores dos animais |
-| 📅 **Consultas** | Agendamento e controle de consultas veterinárias |
+| 👤 **Tutores** | Gerenciamento dos tutores dos animais |
+| 📅 **Agendamentos** | Agendamento e controle de consultas veterinárias |
 
 ```text
 Sistema Veterinário
 │
 ├── 🐶 Serviço de Pets
-├── 👤 Serviço de Donos
-└── 📅 Serviço de Consultas
+├── 👤 Serviço de Tutores
+└── 📅 Serviço de Agendamentos
 ```
 
 ---
@@ -59,49 +59,53 @@ Responsável pelo gerenciamento das informações dos animais cadastrados no sis
 
 | Campo | Descrição |
 |---|---|
-| `id` | Identificador único |
+| `id_animal` | Identificador único do animal (PK) |
 | `nome` | Nome do animal |
-| `espécie` | Espécie do animal |
-| `raça` | Raça do animal |
+| `especie` | Espécie do animal |
+| `raca` | Raça do animal |
 | `idade` | Idade do animal |
+| `sexo` | Sexo do animal |
 | `peso` | Peso do animal |
-| `donoId` | Referência ao tutor |
+| `historico_medico` | Histórico médico do animal |
+| `id_tutor` | Referência ao tutor (FK) |
 
 ---
 
-## 👤 Microsserviço de Donos
+## 👤 Microsserviço de Tutores
 
 Responsável pelo gerenciamento dos tutores dos animais.
 
 ### ✅ Funcionalidades
 
-- Cadastro de donos
+- Cadastro de tutores
 - Atualização cadastral
 - Remoção de registros
-- Listagem de donos
+- Listagem de tutores
 - Consulta de informações específicas
 
 ### 📦 Dados Principais
 
 | Campo | Descrição |
 |---|---|
-| `id` | Identificador único |
-| `nome` | Nome do tutor |
+| `id_tutor` | Identificador único do tutor (PK) |
+| `nome_completo_tutor` | Nome completo do tutor |
+| `cpf` | CPF do tutor |
 | `telefone` | Contato telefônico |
-| `email` | Endereço de e-mail |
-| `endereço` | Localização do tutor |
+| `rua` | Rua do endereço |
+| `numero` | Número do endereço |
+| `bairro` | Bairro do endereço |
 
 ---
 
-## 📅 Microsserviço de Consultas
+## 📅 Microsserviço de Agendamentos
 
 Responsável pelo agendamento e gerenciamento das consultas veterinárias.
 
 ### ✅ Funcionalidades
 
 - Agendamento de consultas
-- Atualização de consultas
-- Cancelamento de consultas
+- Atualização de agendamentos
+- Cancelamento de agendamentos
 - Consulta de histórico
 - Listagem de agendamentos
 
@@ -109,12 +113,12 @@ Responsável pelo agendamento e gerenciamento das consultas veterinárias.
 
 | Campo | Descrição |
 |---|---|
-| `id` | Identificador único |
-| `petId` | Referência ao animal |
+| `id_agendamento` | Identificador único do agendamento (PK) |
 | `data` | Data da consulta |
-| `horário` | Horário da consulta |
-| `motivo` | Motivo do atendimento |
-| `status` | Status atual da consulta |
+| `hora` | Horário da consulta |
+| `motivo_consulta` | Motivo do atendimento |
+| `id_tutor` | Referência ao tutor (FK) |
+| `id_pet` | Referência ao animal (FK) |
 
 ---
 
@@ -122,13 +126,16 @@ Responsável pelo agendamento e gerenciamento das consultas veterinárias.
 
 Os microsserviços se comunicam por meio de **APIs REST**.
 
-O serviço de **Consultas**, por exemplo, realiza requisições ao serviço de **Pets** para validar a existência do animal antes de efetuar um agendamento, garantindo a integridade dos dados entre os serviços.
+O serviço de **Agendamentos**, por exemplo, realiza requisições ao serviço de **Pets** e ao serviço de **Tutores** para validar a existência do animal e do tutor antes de efetuar um agendamento, garantindo a integridade dos dados entre os serviços.
 
 ```
-┌────────────────┐     REST API     ┌────────────────┐
-│   Consultas    │ ──────────────▶  │     Pets       │
-│   Service      │                  │    Service     │
-└────────────────┘                  └────────────────┘
+┌──────────────────┐     REST API     ┌────────────────┐
+│   Agendamentos   │ ──────────────▶  │     Pets       │
+│     Service      │                  │    Service     │
+│                  │ ──────────────▶  ├────────────────┤
+│                  │     REST API     │    Tutores     │
+└──────────────────┘                  │    Service     │
+                                      └────────────────┘
 ```
 
 ---
