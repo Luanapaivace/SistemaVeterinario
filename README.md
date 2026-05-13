@@ -7,9 +7,10 @@
 ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
 
-**Um sistema veterinário distribuído em microsserviços independentes para gerenciamento de pets, tutores e agendamentos.**
+**Um sistema veterinário distribuído em microsserviços independentes para gerenciamento de pets, tutores e agendamentos, com interface web funcional integrada ao backend via API REST.**
 
 </div>
 
@@ -21,7 +22,7 @@ Este projeto tem como objetivo o desenvolvimento de um **sistema veterinário** 
 
 A proposta é dividir as funcionalidades em serviços específicos, permitindo maior organização da aplicação e facilitando futuras manutenções e expansões.
 
-O sistema é composto por **três microsserviços principais**, cada um com responsabilidade bem definida e comunicação via **APIs REST**.
+O sistema conta com **três microsserviços principais**, cada um com responsabilidade bem definida e comunicação via **APIs REST**, além de uma **interface web em HTML** que permite realizar as operações de CRUD diretamente pelo navegador, consumindo as APIs do backend.
 
 ---
 
@@ -140,6 +141,19 @@ O serviço de **Agendamentos**, por exemplo, realiza requisições ao serviço d
 
 ---
 
+## 🌐 Interface Web
+
+O sistema conta com uma **página HTML** funcional que se comunica diretamente com os microsserviços do backend via requisições **REST (fetch API)**, permitindo realizar todas as operações de CRUD pelo navegador, sem necessidade de ferramentas externas.
+
+### ✅ Operações disponíveis via interface
+
+- **Create** — cadastro de novos registros por meio de formulários
+- **Read** — listagem e visualização dos dados cadastrados
+- **Update** — edição de registros existentes
+- **Delete** — remoção de registros
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 
 | Tecnologia | Finalidade |
@@ -149,6 +163,7 @@ O serviço de **Agendamentos**, por exemplo, realiza requisições ao serviço d
 | **Spring Data JPA** | Persistência e mapeamento de dados |
 | **MySQL** | Banco de dados relacional |
 | **Maven** | Gerenciamento de dependências |
+| **HTML** | Interface web para operações de CRUD |
 | **GitHub** | Controle de versão e colaboração |
 
 ---
