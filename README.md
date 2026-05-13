@@ -150,6 +150,5 @@ O serviço de **Consultas**, por exemplo, realiza requisições ao serviço de *
 
 ✨ **Projeto acadêmico desenvolvido para estudo de Arquitetura de Microsserviços**
 
-Feito com ☕ e muito Java
 
 </div>
