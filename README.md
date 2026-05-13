@@ -53,7 +53,7 @@ Sistema Veterinário
 
 ## 🐶 Microsserviço de Pets
 
-> 👩‍💻 **Responsável:** Rayssa Fialho
+>  **Responsável:** Rayssa Fialho
 
 Responsável pelo gerenciamento das informações dos animais cadastrados no sistema.
 
@@ -94,7 +94,7 @@ Página HTML/CSS desenvolvida por **Rayssa Fialho** para gerenciamento dos pets 
 
 ## 👤 Microsserviço de Tutores
 
-> 👩‍💻 **Responsável:** Luana Oliveira
+>  **Responsável:** Luana Oliveira
 
 Responsável pelo gerenciamento dos tutores dos animais.
 
@@ -133,7 +133,7 @@ Página HTML/CSS desenvolvida por **Luana Oliveira** para gerenciamento dos tuto
 
 ## 📅 Microsserviço de Agendamentos
 
-> 👨‍💻 **Responsável:** Gabriel Rolim
+>  **Responsável:** Gabriel Rolim
 
 Responsável pelo agendamento e gerenciamento das consultas veterinárias.
 
